@@ -1,23 +1,13 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+if obj_control.scroll_hover == 1
+	exit;
+
 var _xx = x;
 var _yy = y;
 
-
-/*_total_hp = 20;
-_hp = 10;
-_name = "PM13"
-
-hp_plus_hover = 0;
-hp_minus_hover = 0;
-max_hp_plus_hover = 0;
-max_hp_minus_hover = 0;
-copy_hover = 0;
-up_hover = 0;
-down_hover = 0;
-delete_hover = 0;*/
-	selected_button = 0;
+selected_button = 0;
 	
 if (_move_up == 1) {
 	y -= 96;

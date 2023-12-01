@@ -12,6 +12,7 @@
     {"id":{"name":"spr_plus_button","path":"sprites/spr_plus_button/spr_plus_button.yy",},"order":8,},
     {"id":{"name":"obj_control","path":"objects/obj_control/obj_control.yy",},"order":1,},
     {"id":{"name":"spr_delete_button","path":"sprites/spr_delete_button/spr_delete_button.yy",},"order":16,},
+    {"id":{"name":"spr_scroll_bar_nine_slice","path":"sprites/spr_scroll_bar_nine_slice/spr_scroll_bar_nine_slice.yy",},"order":20,},
     {"id":{"name":"spr_add_fighter_button","path":"sprites/spr_add_fighter_button/spr_add_fighter_button.yy",},"order":17,},
     {"id":{"name":"spr_up_button","path":"sprites/spr_up_button/spr_up_button.yy",},"order":6,},
     {"id":{"name":"spr_icons","path":"sprites/spr_icons/spr_icons.yy",},"order":15,},

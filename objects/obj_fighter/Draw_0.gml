@@ -109,3 +109,9 @@ _xx += 40;
 draw_sprite(spr_down_button, down_hover, _xx, _yy);
 _xx += 40;
 draw_sprite(spr_delete_button, delete_hover, _xx, _yy);
+
+
+
+
+
+_box_nineslice.enabled = false;

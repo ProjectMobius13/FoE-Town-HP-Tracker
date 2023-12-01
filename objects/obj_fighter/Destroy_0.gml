@@ -6,5 +6,5 @@ if _fighter_at_position {
 	_fighter_at_position._delete_check = 1;
 }
 
-obj_control._cam_yy = clamp(obj_control._cam_yy, 0, (instance_number(obj_fighter)*96)-640+64);
+obj_control._cam_yy = clamp(obj_control._cam_yy, 0, (instance_number(obj_fighter)*96)-640);
 camera_set_view_pos(view_camera[0], obj_control._cam_xx, max(obj_control._cam_yy, 0));
