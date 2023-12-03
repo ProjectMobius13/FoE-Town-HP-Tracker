@@ -108,13 +108,13 @@ if mouse_check_button_pressed(mb_left) {
 
 if scroll_hover != 1 && mouse_wheel_up() {
 	_cam_yy -= 8;
-	_cam_yy = clamp(_cam_yy, 0, (instance_number(obj_fighter)*96)-640+96);
+	_cam_yy = clamp(_cam_yy, 0, max(0, (instance_number(obj_fighter)*96)-640+96));
 	camera_set_view_pos(view_camera[0], _cam_xx, _cam_yy);
 }
 
 if scroll_hover != 1 && mouse_wheel_down() {
 	_cam_yy += 8;
-	_cam_yy = clamp(_cam_yy, 0, (instance_number(obj_fighter)*96)-640+96);
+	_cam_yy = clamp(_cam_yy, 0, max(0, (instance_number(obj_fighter)*96)-640+96));
 	camera_set_view_pos(view_camera[0], _cam_xx, _cam_yy);
 }
 

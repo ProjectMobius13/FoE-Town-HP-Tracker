@@ -1,7 +1,7 @@
 {
   "resourceType": "GMFont",
   "resourceVersion": "1.0",
-  "name": "font_mono",
+  "name": "font_ui",
   "hinting": 0,
   "glyphOperations": 0,
   "interpreter": 0,
