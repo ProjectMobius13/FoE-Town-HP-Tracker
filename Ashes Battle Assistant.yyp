@@ -16,6 +16,7 @@
     {"id":{"name":"spr_add_fighter_button","path":"sprites/spr_add_fighter_button/spr_add_fighter_button.yy",},"order":17,},
     {"id":{"name":"spr_up_button","path":"sprites/spr_up_button/spr_up_button.yy",},"order":6,},
     {"id":{"name":"spr_icons","path":"sprites/spr_icons/spr_icons.yy",},"order":15,},
+    {"id":{"name":"spr_colors","path":"sprites/spr_colors/spr_colors.yy",},"order":21,},
     {"id":{"name":"spr_text_field","path":"sprites/spr_text_field/spr_text_field.yy",},"order":10,},
     {"id":{"name":"spr_name_field","path":"sprites/spr_name_field/spr_name_field.yy",},"order":5,},
     {"id":{"name":"font_mono","path":"fonts/font_mono/font_mono.yy",},"order":0,},

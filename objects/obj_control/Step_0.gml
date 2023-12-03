@@ -85,7 +85,8 @@ if mouse_check_button_pressed(mb_left) {
 			}
 			
 			if instance_number(obj_fighter) > 5 {
-				_cam_yy += 96;
+				//_cam_yy += 96;
+				_cam_yy = (instance_number(obj_fighter)*96)-640+96;
 				_cam_yy = clamp(_cam_yy, 0, (instance_number(obj_fighter)*96)-640+96);
 				camera_set_view_pos(view_camera[0], _cam_xx, _cam_yy);
 			}

@@ -57,6 +57,81 @@ if point_in_rectangle(mouse_x, mouse_y, _xx+128, _yy+50, _xx+144, _yy+66) {
 } else {
 	max_hp_plus_hover = 0;
 }
+
+// Colors
+// Red
+if point_in_rectangle(mouse_x, mouse_y, _xx+160, _yy+30, _xx+160+16, _yy+30+16) {
+	_colors_hover[0] = 1;
+	if mouse_check_button_pressed(mb_left)
+		_color = RED;
+} else {
+	_colors_hover[0] = 0;
+}
+
+// Orange
+if point_in_rectangle(mouse_x, mouse_y, _xx+160+20, _yy+30, _xx+160+20+16, _yy+30+16) {
+	_colors_hover[1] = 1;
+	if mouse_check_button_pressed(mb_left)
+		_color = ORANGE;
+} else {
+	_colors_hover[1] = 0;
+}
+
+// Yellow
+if point_in_rectangle(mouse_x, mouse_y, _xx+160+20*2, _yy+30, _xx+160+20*2+16, _yy+30+16) {
+	_colors_hover[2] = 1;
+	if mouse_check_button_pressed(mb_left)
+		_color = YELLOW;
+} else {
+	_colors_hover[2] = 0;
+}
+
+// Green
+if point_in_rectangle(mouse_x, mouse_y, _xx+160+20*3, _yy+30, _xx+160+20*3+16, _yy+30+16) {
+	_colors_hover[3] = 1;
+	if mouse_check_button_pressed(mb_left)
+		_color = GREEN;
+} else {
+	_colors_hover[3] = 0;
+}
+
+// Cyan
+if point_in_rectangle(mouse_x, mouse_y, _xx+160+20*3, _yy+50, _xx+160+20*3+16, _yy+50+16) {
+	_colors_hover[4] = 1;
+	if mouse_check_button_pressed(mb_left)
+		_color = CYAN;
+} else {
+	_colors_hover[4] = 0;
+}
+
+// Blue
+if point_in_rectangle(mouse_x, mouse_y, _xx+160+20*2, _yy+50, _xx+160+20*2+16, _yy+50+16) {
+	_colors_hover[5] = 1;
+	if mouse_check_button_pressed(mb_left)
+		_color = BLUE;
+} else {
+	_colors_hover[5] = 0;
+}
+
+// Purple
+if point_in_rectangle(mouse_x, mouse_y, _xx+160+20, _yy+50, _xx+160+20+16, _yy+50+16) {
+	_colors_hover[6] = 1;
+	if mouse_check_button_pressed(mb_left)
+		_color = PURPLE;
+} else {
+	_colors_hover[6] = 0;
+}
+
+// Pink
+if point_in_rectangle(mouse_x, mouse_y, _xx+160, _yy+50, _xx+160+16, _yy+50+16) {
+	_colors_hover[7] = 1;
+	if mouse_check_button_pressed(mb_left)
+		_color = PINK;
+} else {
+	_colors_hover[7] = 0;
+}
+
+
 	
 // Copy
 if point_in_rectangle(mouse_x, mouse_y, _xx+256, _yy+28, _xx+288, _yy+60) {
