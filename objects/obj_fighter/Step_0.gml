@@ -226,7 +226,7 @@
 				if os_browser == browser_not_a_browser
 					clipboard_set_text(result_string);
 				else
-					get_string("", result_string);
+					get_string("Copy your HP: ", result_string);
 				break;
 			case 6:
 				var _fighter_at_position = instance_position(x, y-96, obj_fighter);
@@ -246,8 +246,15 @@
 				instance_destroy(self);
 				break;
 			case 9:
-				_text_focus = true;
-				keyboard_string = _name;
+				if os_browser == browser_not_a_browser {
+					_text_focus = true;
+					keyboard_string = _name;
+				} else {
+					_name = get_string("Enter your fighter's name: ", _name);
+					if string_length(_name) > 30 {
+						_name = string_delete(_name, 31, string_length(_name)-30);	
+					}
+				}
 				break;
 			default:
 				if (_text_focus == true) {
