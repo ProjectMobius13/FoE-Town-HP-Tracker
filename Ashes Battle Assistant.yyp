@@ -22,7 +22,7 @@
     {"id":{"name":"font_ui","path":"fonts/font_ui/font_ui.yy",},"order":0,},
     {"id":{"name":"spr_collision_mask","path":"sprites/spr_collision_mask/spr_collision_mask.yy",},"order":18,},
     {"id":{"name":"spr_down_button","path":"sprites/spr_down_button/spr_down_button.yy",},"order":7,},
-    {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},"order":0,},
+    {"id":{"name":"Room_Menu","path":"rooms/Room_Menu/Room_Menu.yy",},"order":0,},
   ],
   "Options": [
     {"name":"Android","path":"options/android/options_android.yy",},
@@ -41,7 +41,7 @@
     "children": [],
   },
   "RoomOrderNodes": [
-    {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"roomId":{"name":"Room_Menu","path":"rooms/Room_Menu/Room_Menu.yy",},},
   ],
   "Folders": [
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Animation Curves","folderPath":"folders/Animation Curves.yy","order":12,},

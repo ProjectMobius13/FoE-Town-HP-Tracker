@@ -255,6 +255,10 @@
 #endregion
 
 #region Text Input
+	/*------------------------------------
+		Code by Odewise on r/Gamemaker
+		https://www.reddit.com/r/gamemaker/comments/50sv2v/how_to_make_easy_flexible_text_input_boxes/
+	------------------------------------*/
 	//check if box is focused
 	if (_text_focus = true)
 	{
