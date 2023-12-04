@@ -223,7 +223,10 @@
 					result_string += str_empty_bar;
 				}
 				
-				clipboard_set_text(result_string);
+				if os_browser == browser_not_a_browser
+					clipboard_set_text(result_string);
+				else
+					get_string("", result_string);
 				break;
 			case 6:
 				var _fighter_at_position = instance_position(x, y-96, obj_fighter);

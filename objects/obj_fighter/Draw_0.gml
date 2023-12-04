@@ -2,13 +2,13 @@
 // You can write your code in this editor
 
 #region Initialize Variables
-	var _box_nineslice = sprite_get_nineslice(spr_box_nine_slice);
+	/*var _box_nineslice = sprite_get_nineslice(spr_box_nine_slice);
 	
 	_box_nineslice.enabled = true;
 	_box_nineslice.left = 2;
 	_box_nineslice.right = 2;
 	_box_nineslice.top = 2;
-	_box_nineslice.bottom = 2;
+	_box_nineslice.bottom = 2;*/
 	
 	var _xx = x;
 	var _yy = y;
@@ -16,7 +16,7 @@
 #endregion
 
 #region Draw Box and Name Field
-	draw_sprite_stretched(_box_nineslice, _color, _xx, _yy, room_width-64, 92);
+	draw_sprite_stretched(spr_box_nine_slice, _color, _xx, _yy, room_width-64, 92);
 	draw_sprite_stretched_ext(spr_name_field, _color, _xx+6, _yy+6, max(string_width("A"), string_width(_name)+4), max(string_height("A"), string_height(_name)+2), c_white, max(name_hover, _text_focus));
 #endregion
 
@@ -132,5 +132,5 @@
 	_xx += 40;
 	draw_sprite(spr_delete_button, 2*_color + delete_hover, _xx, _yy);
 	
-	_box_nineslice.enabled = false;
+	//_box_nineslice.enabled = false;
 #endregion
