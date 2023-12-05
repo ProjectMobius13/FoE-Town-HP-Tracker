@@ -20,6 +20,7 @@
     {"id":{"name":"spr_colors","path":"sprites/spr_colors/spr_colors.yy",},"order":21,},
     {"id":{"name":"spr_name_field","path":"sprites/spr_name_field/spr_name_field.yy",},"order":5,},
     {"id":{"name":"font_ui","path":"fonts/font_ui/font_ui.yy",},"order":0,},
+    {"id":{"name":"scale_canvas","path":"scripts/scale_canvas/scale_canvas.yy",},"order":1,},
     {"id":{"name":"spr_collision_mask","path":"sprites/spr_collision_mask/spr_collision_mask.yy",},"order":18,},
     {"id":{"name":"spr_down_button","path":"sprites/spr_down_button/spr_down_button.yy",},"order":7,},
     {"id":{"name":"Room_Menu","path":"rooms/Room_Menu/Room_Menu.yy",},"order":0,},

@@ -20,6 +20,12 @@
 #endregion
 
 #region UI Interaction Variables
+	_base_width = room_width;
+	_base_height = room_height;
+	_width = _base_width;
+	_height = _base_height;
+	
+	
 	add_hover = 0;
 	up_hover = 0;
 	down_hover = 0;

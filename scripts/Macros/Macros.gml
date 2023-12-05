@@ -8,3 +8,7 @@
 #macro BLUE 5;
 #macro PURPLE 6;
 #macro PINK 7;
+
+
+#macro BASE_WIDTH room_width;
+#macro BASE_HEIGHT room_height;
