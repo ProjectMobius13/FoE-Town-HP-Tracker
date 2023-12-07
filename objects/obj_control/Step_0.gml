@@ -32,54 +32,74 @@
 #endregion
 
 #region UI Button Checks
-	// Add Fighter Button
-	_xx = room_width/2;
-	_yy = y + 32 + 96 * _fighter_count;
-	if scroll_hover != 1 && point_in_circle(mouse_x, mouse_y, _xx, _yy, 32) {
-		add_hover = 1;
-		selected_button = 1;
-	} else {
-		add_hover = 0;	
-	}
 	
-	// Scroll Up Button
-	if scroll_toggle && scroll_hover != 1 && point_in_rectangle(mouse_x, mouse_y, room_width - 32, _top_camera_view + 31, room_width, _scroll_bar_y - 2) {
-		up_hover = 1;
-		selected_button = 2;
+	if (_update_available) {
+		instance_deactivate_object(obj_fighter);
+		_yy = _top_camera_y + _camera_height/2 + 24;
+		_xx = room_width/4 + 32;
+		if point_in_rectangle(mouse_x, mouse_y, _xx - string_width("Yes")/2 - 2, _yy - string_height("Yes")/2 - 2, _xx + string_width("Yes")/2 + 2, _yy + string_height("Yes")/2 + 2) {
+			_update_yes_hover = 1;
+			selected_button = "Update";
+		} else {
+			_update_yes_hover = 0;
+		}
+		_xx = 3*room_width/4 - 32;
+		if point_in_rectangle(mouse_x, mouse_y, _xx - string_width("Yes")/2 - 2, _yy - string_height("Yes")/2 - 2, _xx + string_width("Yes")/2 + 2, _yy + string_height("Yes")/2 + 2) {
+			_update_no_hover = 1;
+			selected_button = "Ignore Update";
+		} else {
+			_update_no_hover = 0;
+		}
 	} else {
-		up_hover = 0;
-	}
-	
-	// Scroll Down Button
-	if scroll_toggle && scroll_hover != 1 && point_in_rectangle(mouse_x, mouse_y, room_width - 32, _scroll_bar_y + _scroll_bar_height + 2, room_width, _bottom_camera_view - 32) {
-		down_hover = 1;
-		selected_button = 3;
-	} else {
-		down_hover = 0;
-	}
-	
-	// Scroll Bar
-	if scroll_toggle && scroll_hover != 1 && point_in_rectangle(mouse_x, mouse_y, room_width - 30, _scroll_bar_y, room_width - 2, _scroll_bar_y + _scroll_bar_height) {
-		scroll_hover = 1;
-	} else {
-		if !mouse_check_button(mb_left)
-			scroll_hover = 0;
-	}
-	
-	// Dragging Scroll Bar
-	if mouse_check_button(mb_left) {
-		if scroll_hover == 1 {
-			_cam_yy += (mouse_y - mouse_y_previous) / _scroll_area_height * _total_region_size;
-			_cam_yy = clamp(_cam_yy, 0, (instance_number(obj_fighter)*96)-640+96);
-			camera_set_view_pos(view_camera[0], _cam_xx, _cam_yy);
+		// Add Fighter Button
+		_xx = room_width/2;
+		_yy = y + 32 + 96 * _fighter_count;
+		if scroll_hover != 1 && point_in_circle(mouse_x, mouse_y, _xx, _yy, 32) {
+			add_hover = 1;
+			selected_button = "Add Fighter";
+		} else {
+			add_hover = 0;	
+		}
+		
+		// Scroll Up Button
+		if scroll_toggle && scroll_hover != 1 && point_in_rectangle(mouse_x, mouse_y, room_width - 32, _top_camera_view + 31, room_width, _scroll_bar_y - 2) {
+			up_hover = 1;
+			selected_button = "Scroll Up";
+		} else {
+			up_hover = 0;
+		}
+		
+		// Scroll Down Button
+		if scroll_toggle && scroll_hover != 1 && point_in_rectangle(mouse_x, mouse_y, room_width - 32, _scroll_bar_y + _scroll_bar_height + 2, room_width, _bottom_camera_view - 32) {
+			down_hover = 1;
+			selected_button = "Scroll Down";
+		} else {
+			down_hover = 0;
+		}
+		
+		// Scroll Bar
+		if scroll_toggle && scroll_hover != 1 && point_in_rectangle(mouse_x, mouse_y, room_width - 30, _scroll_bar_y, room_width - 2, _scroll_bar_y + _scroll_bar_height) {
+			scroll_hover = 1;
+		} else {
+			if !mouse_check_button(mb_left)
+				scroll_hover = 0;
+		}
+		
+		// Dragging Scroll Bar
+		if mouse_check_button(mb_left) {
+			if scroll_hover == 1 {
+				_cam_yy += (mouse_y - mouse_y_previous) / _scroll_area_height * _total_region_size;
+				_cam_yy = clamp(_cam_yy, 0, (instance_number(obj_fighter)*96)-640+96);
+				camera_set_view_pos(view_camera[0], _cam_xx, _cam_yy);
+			}
 		}
 	}
-	
+		
 	// Handle Button Presses
 	if mouse_check_button_pressed(mb_left) {
 		switch (selected_button) {
 			// Create a Fighter Entry
-			case 1:
+			case "Add Fighter":
 				_xx = x;
 				_yy = y + 96 * _fighter_count;
 				
@@ -98,16 +118,28 @@
 				}
 				break;
 			// Scroll Up One Page
-			case 2:
+			case "Scroll Up":
 				_cam_yy -= 96 * 5;
 				_cam_yy = clamp(_cam_yy, 0, (instance_number(obj_fighter)*96)-640+96);
 				camera_set_view_pos(view_camera[0], _cam_xx, _cam_yy);
 				break;
 			// Scroll Down One Page
-			case 3:
+			case "Scroll Down":
 				_cam_yy += 96 * 5;
 				_cam_yy = clamp(_cam_yy, 0, (instance_number(obj_fighter)*96)-640+96);
 				camera_set_view_pos(view_camera[0], _cam_xx, _cam_yy);
+				break;
+			case "Update":
+				url_open(_update_url);
+				if os_type == os_windows {
+					game_end();
+				}
+				instance_activate_object(obj_fighter);
+				_update_available = false;
+				break;
+			case "Ignore Update":
+				instance_activate_object(obj_fighter);
+				_update_available = false;
 				break;
 		}
 	}

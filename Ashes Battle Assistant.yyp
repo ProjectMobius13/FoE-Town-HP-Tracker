@@ -8,6 +8,7 @@
     {"id":{"name":"obj_fighter","path":"objects/obj_fighter/obj_fighter.yy",},"order":0,},
     {"id":{"name":"spr_crt_background","path":"sprites/spr_crt_background/spr_crt_background.yy",},"order":0,},
     {"id":{"name":"spr_minus_button","path":"sprites/spr_minus_button/spr_minus_button.yy",},"order":9,},
+    {"id":{"name":"scr_UpdateSync","path":"scripts/scr_UpdateSync/scr_UpdateSync.yy",},"order":2,},
     {"id":{"name":"spr_game_icon","path":"sprites/spr_game_icon/spr_game_icon.yy",},"order":19,},
     {"id":{"name":"spr_plus_button","path":"sprites/spr_plus_button/spr_plus_button.yy",},"order":8,},
     {"id":{"name":"obj_control","path":"objects/obj_control/obj_control.yy",},"order":1,},

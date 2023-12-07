@@ -47,3 +47,18 @@
 		_name = "Fighter " + string(_id);
 	}
 #endregion
+
+#region Updater Setup
+	username = "PM13";//your username as a string, as set in the Update Sync app
+	password = "PlanetBinary1011005!UpdateSync";//your password as a string, as set in the Update Sync app
+	gameName = "Ashes Battle Assistant";//your game's name as a string, as set in the Update Sync app
+	thisVersion = real(string_digits(GM_version));//the version of this build as a real*
+	
+	rtrn = UpdateSync_init(username,password,gameName);
+	
+	_update_available = false;
+	_update_url = "null";
+	
+	_update_yes_hover = 0;
+	_update_no_hover = 0;
+#endregion
