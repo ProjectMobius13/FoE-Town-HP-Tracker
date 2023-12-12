@@ -11,7 +11,8 @@
 	var _top_camera_view = camera_get_view_y(view_camera[0]);
 	var _bottom_camera_view = _top_camera_view + camera_get_view_height(view_camera[0]);
 	
-	_total_region_size = max(room_height, _fighter_count * 96 + 96);
+	//_total_region_size = max(room_height, _fighter_count * (ENTRY_HEIGHT+4) + ENTRY_HEIGHT+4);
+	_total_region_size = max(room_height, _fighter_count * (ENTRY_HEIGHT+4) + 100);
 	
 	_top_camera_y = camera_get_view_y(view_camera[0]);
 	_camera_height = camera_get_view_height(view_camera[0]);
@@ -25,7 +26,7 @@
 	selected_button = 0;
 	
 	// Only show the scroll bar if entry number exceeds one page
-	if instance_number(obj_fighter) > 5
+	if _total_region_size > room_height
 		scroll_toggle = true;
 	else
 		scroll_toggle = false;
@@ -53,7 +54,7 @@
 	} else {
 		// Add Fighter Button
 		_xx = room_width/2;
-		_yy = y + 32 + 96 * _fighter_count;
+		_yy = y + 32 + (ENTRY_HEIGHT+4) * _fighter_count;
 		if scroll_hover != 1 && point_in_circle(mouse_x, mouse_y, _xx, _yy, 32) {
 			add_hover = 1;
 			selected_button = "Add Fighter";
@@ -89,7 +90,7 @@
 		if mouse_check_button(mb_left) {
 			if scroll_hover == 1 {
 				_cam_yy += (mouse_y - mouse_y_previous) / _scroll_area_height * _total_region_size;
-				_cam_yy = clamp(_cam_yy, 0, (instance_number(obj_fighter)*96)-640+96);
+				_cam_yy = clamp(_cam_yy, 0, (instance_number(obj_fighter)*(ENTRY_HEIGHT+4))-_camera_height+ENTRY_HEIGHT+4);
 				camera_set_view_pos(view_camera[0], _cam_xx, _cam_yy);
 			}
 		}
@@ -101,7 +102,7 @@
 			// Create a Fighter Entry
 			case "Add Fighter":
 				_xx = x;
-				_yy = y + 96 * _fighter_count;
+				_yy = y + (ENTRY_HEIGHT+4) * _fighter_count;
 				
 				var _fighter = instance_create_depth(_xx, _yy, depth + 1, obj_fighter);
 				
@@ -110,23 +111,25 @@
 					_name = "Fighter " + string(_id);
 				}
 				
-				if instance_number(obj_fighter) > 5 {
-					//_cam_yy += 96;
-					_cam_yy = (instance_number(obj_fighter)*96)-640+96;
-					_cam_yy = clamp(_cam_yy, 0, (instance_number(obj_fighter)*96)-640+96);
+				_fighter_count = instance_number(obj_fighter);
+				_total_region_size = max(room_height, _fighter_count * (ENTRY_HEIGHT+4) + 100);
+				
+				if _total_region_size > room_height {
+					_cam_yy = (_fighter_count*(ENTRY_HEIGHT+4))-_camera_height+100;
+					_cam_yy = clamp(_cam_yy, 0, (_fighter_count*(ENTRY_HEIGHT+4))-_camera_height+100);
 					camera_set_view_pos(view_camera[0], _cam_xx, _cam_yy);
 				}
 				break;
 			// Scroll Up One Page
 			case "Scroll Up":
 				_cam_yy -= 96 * 5;
-				_cam_yy = clamp(_cam_yy, 0, (instance_number(obj_fighter)*96)-640+96);
+				_cam_yy = clamp(_cam_yy, 0, (instance_number(obj_fighter)*(ENTRY_HEIGHT+4))-_camera_height+(ENTRY_HEIGHT+4));
 				camera_set_view_pos(view_camera[0], _cam_xx, _cam_yy);
 				break;
 			// Scroll Down One Page
 			case "Scroll Down":
 				_cam_yy += 96 * 5;
-				_cam_yy = clamp(_cam_yy, 0, (instance_number(obj_fighter)*96)-640+96);
+				_cam_yy = clamp(_cam_yy, 0, (instance_number(obj_fighter)*(ENTRY_HEIGHT+4))-_camera_height+(ENTRY_HEIGHT+4));
 				camera_set_view_pos(view_camera[0], _cam_xx, _cam_yy);
 				break;
 			case "Update":
@@ -148,13 +151,13 @@
 #region Scroll Wheel
 	if scroll_hover != 1 && mouse_wheel_up() {
 		_cam_yy -= 8;
-		_cam_yy = clamp(_cam_yy, 0, max(0, (instance_number(obj_fighter)*96)-640+96));
+		_cam_yy = clamp(_cam_yy, 0, max(0, (instance_number(obj_fighter)*(ENTRY_HEIGHT+4))-_camera_height+(ENTRY_HEIGHT+4)));
 		camera_set_view_pos(view_camera[0], _cam_xx, _cam_yy);
 	}
 	
 	if scroll_hover != 1 && mouse_wheel_down() {
 		_cam_yy += 8;
-		_cam_yy = clamp(_cam_yy, 0, max(0, (instance_number(obj_fighter)*96)-640+96));
+		_cam_yy = clamp(_cam_yy, 0, max(0, (instance_number(obj_fighter)*(ENTRY_HEIGHT+4))-_camera_height+(ENTRY_HEIGHT+4)));
 		camera_set_view_pos(view_camera[0], _cam_xx, _cam_yy);
 	}
 #endregion

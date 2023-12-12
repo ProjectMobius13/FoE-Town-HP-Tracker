@@ -4,6 +4,7 @@
   "name": "Ashes Battle Assistant",
   "resources": [
     {"id":{"name":"spr_box_nine_slice","path":"sprites/spr_box_nine_slice/spr_box_nine_slice.yy",},"order":3,},
+    {"id":{"name":"obj_background","path":"objects/obj_background/obj_background.yy",},"order":2,},
     {"id":{"name":"spr_copy_text_button","path":"sprites/spr_copy_text_button/spr_copy_text_button.yy",},"order":1,},
     {"id":{"name":"obj_fighter","path":"objects/obj_fighter/obj_fighter.yy",},"order":0,},
     {"id":{"name":"spr_crt_background","path":"sprites/spr_crt_background/spr_crt_background.yy",},"order":0,},
@@ -35,6 +36,7 @@
     {"name":"Main","path":"options/main/options_main.yy",},
     {"name":"Windows","path":"options/windows/options_windows.yy",},
     {"name":"operagx","path":"options/operagx/options_operagx.yy",},
+    {"name":"tvOS","path":"options/tvos/options_tvos.yy",},
   ],
   "defaultScriptType": 1,
   "isEcma": false,

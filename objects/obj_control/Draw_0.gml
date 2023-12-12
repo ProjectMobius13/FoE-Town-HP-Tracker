@@ -3,8 +3,7 @@
 
 #region Variables
 	var _xx = x;
-	var _yy = y + 96 * instance_number(obj_fighter);
-	
+	var _yy = y + (ENTRY_HEIGHT+4) * instance_number(obj_fighter);
 	_top_camera_y = camera_get_view_y(view_camera[0]);
 	_camera_height = camera_get_view_height(view_camera[0]);
 	_bottom_camera_y = _top_camera_y + _camera_height;
@@ -20,6 +19,7 @@
 	if (_update_available) {
 		_yy = _top_camera_y + _camera_height/2 - 46;
 		draw_sprite_stretched(spr_box_nine_slice, GREEN, _xx, _yy, room_width-64, 92);
+		
 		
 		_xx = room_width/2;
 		_yy += 20;

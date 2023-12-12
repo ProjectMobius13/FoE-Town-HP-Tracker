@@ -40,7 +40,7 @@
 #region Create Initial Fighter Entry
 	var _fighter_count = instance_number(obj_fighter);
 	var _xx = x;
-	var _yy = y + 96 * _fighter_count;
+	var _yy = y + (ENTRY_HEIGHT+4) * _fighter_count;
 	var _fighter = instance_create_depth(_xx, _yy, depth + 1, obj_fighter);
 	with _fighter {
 		_id = _fighter_count + 1;

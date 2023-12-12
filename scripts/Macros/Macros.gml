@@ -8,3 +8,13 @@
 #macro BLUE 5
 #macro PURPLE 6
 #macro PINK 7
+
+#macro ENTRY_HEIGHT 140
+
+#macro STRENGTH 0
+#macro PERCEPTION 1
+#macro ENDURANCE 2
+#macro CHARISMA 3
+#macro INTELLIGENCE 4
+#macro AGILITY 5
+#macro LUCK 6

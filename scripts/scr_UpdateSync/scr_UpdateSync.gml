@@ -1,3 +1,5 @@
+// Code by Bulletech Studios
+
 /// @function UpdateSync_init(username,password,gameName);
 /// @description Connect to server to check details
 /// @param {string} username Your username as set in Update Sync

@@ -32,6 +32,7 @@ _text_focus = false;
 // Color Variables
 _color = GREEN;
 _text_color = [ #FF0000, #FF7E32, #FFFF32, #3BFD3B, #00E6FF, #227EFF, #9000FF, #FF00EC ];
+_SPECIAL = [6, 4, 8, 5, 6, 10, 1];
 
 // Move Checks
 _move_up = 0;
