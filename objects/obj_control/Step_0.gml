@@ -3,6 +3,10 @@
 
 #region Variables
 	// Set Variables
+	
+	if instance_exists(obj_SPECIAL_menu)
+		exit;
+		
 	var _xx = x;
 	var _yy = y;
 	
@@ -79,11 +83,12 @@
 		}
 		
 		// Scroll Bar
-		if scroll_toggle && scroll_hover != 1 && point_in_rectangle(mouse_x, mouse_y, room_width - 30, _scroll_bar_y, room_width - 2, _scroll_bar_y + _scroll_bar_height) {
+		if scroll_toggle && point_in_rectangle(mouse_x, mouse_y, room_width - 30, _scroll_bar_y, room_width - 2, _scroll_bar_y + _scroll_bar_height) {
+			scroll_hover = 1;
+		} else if scroll_hover == 1 && mouse_check_button(mb_left) {
 			scroll_hover = 1;
 		} else {
-			if !mouse_check_button(mb_left)
-				scroll_hover = 0;
+			scroll_hover = 0;
 		}
 		
 		// Dragging Scroll Bar
@@ -115,8 +120,8 @@
 				_total_region_size = max(room_height, _fighter_count * (ENTRY_HEIGHT+4) + 100);
 				
 				if _total_region_size > room_height {
-					_cam_yy = (_fighter_count*(ENTRY_HEIGHT+4))-_camera_height+100;
-					_cam_yy = clamp(_cam_yy, 0, (_fighter_count*(ENTRY_HEIGHT+4))-_camera_height+100);
+					_cam_yy = (_fighter_count*(ENTRY_HEIGHT+4))-_camera_height+128;
+					_cam_yy = clamp(_cam_yy, 0, (_fighter_count*(ENTRY_HEIGHT+4))-_camera_height+128);
 					camera_set_view_pos(view_camera[0], _cam_xx, _cam_yy);
 				}
 				break;

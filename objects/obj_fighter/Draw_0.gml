@@ -10,6 +10,9 @@
 	_box_nineslice.top = 2;
 	_box_nineslice.bottom = 2;*/
 	
+	if instance_exists(obj_SPECIAL_menu)
+		exit;
+	
 	var _xx = x;
 	var _yy = y;
 	var _icon_width = sprite_get_width(spr_icons);
@@ -21,7 +24,7 @@
 #endregion
 
 #region Draw Name Font
-	draw_set_font(font_ui);
+	draw_set_font(font_ui_12);
 	_xx += 8;
 	_yy += 8;
 	
@@ -34,50 +37,72 @@
 	draw_set_color(c_white);
 #endregion
 
-#region Draw HP Editors
-#region Current HP
-	_yy += 20
-	draw_set_color(_text_color[_color]);
-	draw_set_halign(fa_left);
-	draw_text(_xx, _yy, "Current HP: ");
+#region Draw Health Icons
+	_xx = x + 8;
+	_yy += 24;
+	if (_hp < 1)
+		draw_sprite(spr_icons, 1, _xx, _yy);
+	else
+		draw_sprite(spr_icons, 0, _xx, _yy);
 	
-	_xx += string_width("Current HP: ");
+	_xx += _icon_width + 2;
 	
-	draw_sprite(spr_minus_button, 2*_color + hp_minus_hover, _xx, _yy + 2);
+	for (count = _hp; count > 0; count--) {
+		draw_sprite(spr_icons, 2 + 2*_color, _xx, _yy);
+		_xx += _icon_width + 2;
+	}
 	
-	_xx += 16;
-	draw_set_color(_text_color[_color]);
-	draw_set_halign(fa_center);
-	draw_text(_xx + 10, _yy, string(_hp))
-	draw_set_halign(fa_left);
-	draw_set_color(c_white);
-	
-	_xx += 20;
-	draw_sprite(spr_plus_button, 2*_color + hp_plus_hover, _xx, _yy + 2);
+	for (count = _total_hp - _hp; count > 0; count--) {
+		draw_sprite(spr_icons, 3 + 2*_color, _xx, _yy);
+		_xx += _icon_width + 2;
+	}
 #endregion
 
-#region Max HP
-	_yy += 20
-	_xx = x + 8;
-	
-	draw_set_color(_text_color[_color]);
-	draw_set_halign(fa_left);
-	draw_text(_xx, _yy, "Max. HP: ");
-	
-	_xx += 84;
-	
-	draw_sprite(spr_minus_button, 2*_color + max_hp_minus_hover, _xx, _yy + 2);
-	
-	_xx += 16;
-	draw_set_color(_text_color[_color]);
-	draw_set_halign(fa_center);
-	draw_text(_xx + 10, _yy, string(_total_hp))
-	draw_set_halign(fa_left);
-	draw_set_color(c_white);
-	
-	_xx += 20;
-	draw_sprite(spr_plus_button, 2*_color + max_hp_plus_hover, _xx, _yy + 2);
-#endregion
+#region Draw HP Editors
+	#region Current HP
+		_xx = x + 8;
+		_yy += 20
+		draw_set_color(_text_color[_color]);
+		draw_set_halign(fa_left);
+		draw_text(_xx, _yy, "Current HP: ");
+		
+		_xx += string_width("Current HP: ");
+		
+		draw_sprite(spr_minus_button, 2*_color + hp_minus_hover, _xx, _yy + 2);
+		
+		_xx += 16;
+		draw_set_color(_text_color[_color]);
+		draw_set_halign(fa_center);
+		draw_text(_xx + 10, _yy, string(_hp))
+		draw_set_halign(fa_left);
+		draw_set_color(c_white);
+		
+		_xx += 20;
+		draw_sprite(spr_plus_button, 2*_color + hp_plus_hover, _xx, _yy + 2);
+	#endregion
+
+	#region Max HP
+		_yy += 20
+		_xx = x + 8;
+		
+		draw_set_color(_text_color[_color]);
+		draw_set_halign(fa_left);
+		draw_text(_xx, _yy, "Max. HP: ");
+		
+		_xx += 84;
+		
+		draw_sprite(spr_minus_button, 2*_color + max_hp_minus_hover, _xx, _yy + 2);
+		
+		_xx += 16;
+		draw_set_color(_text_color[_color]);
+		draw_set_halign(fa_center);
+		draw_text(_xx + 10, _yy, string(_total_hp))
+		draw_set_halign(fa_left);
+		draw_set_color(c_white);
+		
+		_xx += 20;
+		draw_sprite(spr_plus_button, 2*_color + max_hp_plus_hover, _xx, _yy + 2);
+	#endregion
 #endregion
 
 #region Draw Color Pickers
@@ -103,9 +128,13 @@
 	_xx = x + 8;
 	_yy += 44;
 	
+	
 	draw_set_color(_text_color[_color]);
 	draw_set_halign(fa_left);
 	_xx = room_width/2 - 72;
+	
+	
+	draw_sprite_stretched_ext(spr_name_field, _color, _xx-16, _yy-20, 176, 40, c_white, special_hover);
 	
 	draw_set_halign(fa_center);
 	draw_text(_xx, _yy-20, "S.");
@@ -139,30 +168,9 @@
 	draw_set_color(c_white);
 #endregion
 
-#region Draw Health Icons
-	_xx = x + 8;
-	_yy += 24;
-	if (_hp < 1)
-		draw_sprite(spr_icons, 1, _xx, _yy);
-	else
-		draw_sprite(spr_icons, 0, _xx, _yy);
-	
-	_xx += _icon_width + 2;
-	
-	for (count = _hp; count > 0; count--) {
-		draw_sprite(spr_icons, 2 + 2*_color, _xx, _yy);
-		_xx += _icon_width + 2;
-	}
-	
-	for (count = _total_hp - _hp; count > 0; count--) {
-		draw_sprite(spr_icons, 3 + 2*_color, _xx, _yy);
-		_xx += _icon_width + 2;
-	}
-#endregion
-
 #region Draw Copy, Up, Down, and Delete Buttons
 	_xx = x + 256;
-	_yy = y + 28;
+	_yy = y + 54;
 	
 	draw_sprite(spr_copy_text_button, 2*_color + copy_hover, _xx, _yy);
 	_xx += 40;

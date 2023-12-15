@@ -25,6 +25,7 @@ up_hover = 0;
 down_hover = 0;
 delete_hover = 0;
 name_hover = 0;
+special_hover = 0;
 _colors_hover = [0, 0, 0, 0, 0, 0, 0, 0];
 selected_button = 0;
 _text_focus = false;
@@ -32,7 +33,7 @@ _text_focus = false;
 // Color Variables
 _color = GREEN;
 _text_color = [ #FF0000, #FF7E32, #FFFF32, #3BFD3B, #00E6FF, #227EFF, #9000FF, #FF00EC ];
-_SPECIAL = [6, 4, 8, 5, 6, 10, 1];
+_SPECIAL = [5, 5, 5, 5, 5, 5, 5];
 
 // Move Checks
 _move_up = 0;

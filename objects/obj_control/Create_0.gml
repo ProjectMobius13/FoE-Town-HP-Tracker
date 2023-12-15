@@ -62,3 +62,6 @@
 	_update_yes_hover = 0;
 	_update_no_hover = 0;
 #endregion
+
+//show_message("Today is " + string(current_day) + "/" + string (current_month) + "/" + string(current_year) +".");
+

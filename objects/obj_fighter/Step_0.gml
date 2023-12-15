@@ -4,6 +4,9 @@
 #region Initialize Variables
 	if obj_control.scroll_hover == 1
 		exit;
+		
+	if instance_exists(obj_SPECIAL_menu)
+		exit;
 	
 	var _xx = x;
 	var _yy = y;
@@ -34,14 +37,14 @@
 
 #region Button Checks
 	// Current HP
-	if point_in_rectangle(mouse_x, mouse_y, _xx+92, _yy+30, _xx+108, _yy+46) {
+	if point_in_rectangle(mouse_x, mouse_y, _xx+92, _yy+50, _xx+108, _yy+66) {
 		hp_minus_hover = 1;
 		selected_button = 1;
 	} else {
 		hp_minus_hover = 0;
 	}
 		
-	if point_in_rectangle(mouse_x, mouse_y, _xx+128, _yy+30, _xx+144, _yy+46) {
+	if point_in_rectangle(mouse_x, mouse_y, _xx+128, _yy+50, _xx+144, _yy+66) {
 		hp_plus_hover = 1;
 		selected_button = 2;
 	} else {
@@ -49,14 +52,14 @@
 	}
 		
 	// Max HP
-	if point_in_rectangle(mouse_x, mouse_y, _xx+92, _yy+50, _xx+108, _yy+66) {
+	if point_in_rectangle(mouse_x, mouse_y, _xx+92, _yy+70, _xx+108, _yy+86) {
 		max_hp_minus_hover = 1;
 		selected_button = 3;
 	} else {
 		max_hp_minus_hover = 0;
 	}
 		
-	if point_in_rectangle(mouse_x, mouse_y, _xx+128, _yy+50, _xx+144, _yy+66) {
+	if point_in_rectangle(mouse_x, mouse_y, _xx+128, _yy+70, _xx+144, _yy+86) {
 		max_hp_plus_hover = 1;
 		selected_button = 4;
 	} else {
@@ -66,7 +69,7 @@
 	#region Color Buttons
 		// Colors
 		// Red
-		if point_in_rectangle(mouse_x, mouse_y, _xx+160, _yy+30, _xx+160+16, _yy+30+16) {
+		if point_in_rectangle(mouse_x, mouse_y, _xx+160, _yy+50, _xx+160+16, _yy+50+16) {
 			_colors_hover[0] = 1;
 			if mouse_check_button_pressed(mb_left)
 				_color = RED;
@@ -75,7 +78,7 @@
 		}
 		
 		// Orange
-		if point_in_rectangle(mouse_x, mouse_y, _xx+160+20, _yy+30, _xx+160+20+16, _yy+30+16) {
+		if point_in_rectangle(mouse_x, mouse_y, _xx+160+20, _yy+50, _xx+160+20+16, _yy+50+16) {
 			_colors_hover[1] = 1;
 			if mouse_check_button_pressed(mb_left)
 				_color = ORANGE;
@@ -84,7 +87,7 @@
 		}
 		
 		// Yellow
-		if point_in_rectangle(mouse_x, mouse_y, _xx+160+20*2, _yy+30, _xx+160+20*2+16, _yy+30+16) {
+		if point_in_rectangle(mouse_x, mouse_y, _xx+160+20*2, _yy+50, _xx+160+20*2+16, _yy+50+16) {
 			_colors_hover[2] = 1;
 			if mouse_check_button_pressed(mb_left)
 				_color = YELLOW;
@@ -93,7 +96,7 @@
 		}
 		
 		// Green
-		if point_in_rectangle(mouse_x, mouse_y, _xx+160+20*3, _yy+30, _xx+160+20*3+16, _yy+30+16) {
+		if point_in_rectangle(mouse_x, mouse_y, _xx+160+20*3, _yy+50, _xx+160+20*3+16, _yy+50+16) {
 			_colors_hover[3] = 1;
 			if mouse_check_button_pressed(mb_left)
 				_color = GREEN;
@@ -102,7 +105,7 @@
 		}
 		
 		// Cyan
-		if point_in_rectangle(mouse_x, mouse_y, _xx+160+20*3, _yy+50, _xx+160+20*3+16, _yy+50+16) {
+		if point_in_rectangle(mouse_x, mouse_y, _xx+160+20*3, _yy+70, _xx+160+20*3+16, _yy+70+16) {
 			_colors_hover[4] = 1;
 			if mouse_check_button_pressed(mb_left)
 				_color = CYAN;
@@ -111,7 +114,7 @@
 		}
 		
 		// Blue
-		if point_in_rectangle(mouse_x, mouse_y, _xx+160+20*2, _yy+50, _xx+160+20*2+16, _yy+50+16) {
+		if point_in_rectangle(mouse_x, mouse_y, _xx+160+20*2, _yy+70, _xx+160+20*2+16, _yy+70+16) {
 			_colors_hover[5] = 1;
 			if mouse_check_button_pressed(mb_left)
 				_color = BLUE;
@@ -120,7 +123,7 @@
 		}
 		
 		// Purple
-		if point_in_rectangle(mouse_x, mouse_y, _xx+160+20, _yy+50, _xx+160+20+16, _yy+50+16) {
+		if point_in_rectangle(mouse_x, mouse_y, _xx+160+20, _yy+70, _xx+160+20+16, _yy+70+16) {
 			_colors_hover[6] = 1;
 			if mouse_check_button_pressed(mb_left)
 				_color = PURPLE;
@@ -129,7 +132,7 @@
 		}
 		
 		// Pink
-		if point_in_rectangle(mouse_x, mouse_y, _xx+160, _yy+50, _xx+160+16, _yy+50+16) {
+		if point_in_rectangle(mouse_x, mouse_y, _xx+160, _yy+70, _xx+160+16, _yy+70+16) {
 			_colors_hover[7] = 1;
 			if mouse_check_button_pressed(mb_left)
 				_color = PINK;
@@ -139,7 +142,7 @@
 	#endregion
 		
 	// Copy
-	if point_in_rectangle(mouse_x, mouse_y, _xx+256, _yy+28, _xx+288, _yy+60) {
+	if point_in_rectangle(mouse_x, mouse_y, _xx+256, _yy+28+24, _xx+288, _yy+60+24) {
 		copy_hover = 1;
 		selected_button = 5;
 	} else {
@@ -147,7 +150,7 @@
 	}
 		
 	// Up
-	if point_in_rectangle(mouse_x, mouse_y, _xx+296, _yy+28, _xx+328, _yy+60) {
+	if point_in_rectangle(mouse_x, mouse_y, _xx+296, _yy+28+24, _xx+328, _yy+60+24) {
 		up_hover = 1;
 		selected_button = 6;
 	} else {
@@ -155,7 +158,7 @@
 	}
 		
 	// Down
-	if point_in_rectangle(mouse_x, mouse_y, _xx+336, _yy+28, _xx+368, _yy+60) {
+	if point_in_rectangle(mouse_x, mouse_y, _xx+336, _yy+28+24, _xx+368, _yy+60+24) {
 		down_hover = 1;
 		selected_button = 7;
 	} else {
@@ -163,19 +166,30 @@
 	}
 		
 	// Delete
-	if point_in_rectangle(mouse_x, mouse_y, _xx+376, _yy+28, _xx+408, _yy+60) {
+	if point_in_rectangle(mouse_x, mouse_y, _xx+376, _yy+28+24, _xx+408, _yy+60+24) {
 		delete_hover = 1;
 		selected_button = 8;
 	} else {
 		delete_hover = 0;
 	}
 	
+	// Name Field
 	if point_in_rectangle(mouse_x, mouse_y, _xx+6, _yy+6, _xx+ max(string_width("A"), string_width(_name)+4), _yy+max(string_height("A"), string_height(_name)+4)) {
 		name_hover = 1;
 		selected_button = 9;
 	} else {
 		name_hover = 0;
 	}
+	
+	// SPECIAL
+	
+	if point_in_rectangle(mouse_x, mouse_y, _xx+120, _yy+92, _xx+120+176, _yy+92+40) {
+		special_hover = 1;
+		selected_button = 10;
+	} else {
+		special_hover = 0;
+	}
+	
 #endregion
 
 #region Mouse Clicked
@@ -255,6 +269,12 @@
 						_name = string_delete(_name, 31, string_length(_name)-30);	
 					}
 				}
+				break;
+			case 10:
+				instance_deactivate_all(true);
+				instance_activate_object(obj_control);
+				instance_activate_object(obj_background);
+				instance_create_depth(camera_get_view_x(view_camera[0]) + 32, camera_get_view_y(view_camera[0]) + 32, depth, obj_SPECIAL_menu);
 				break;
 			default:
 				if (_text_focus == true) {
