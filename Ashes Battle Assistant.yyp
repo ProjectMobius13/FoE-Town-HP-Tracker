@@ -16,6 +16,7 @@
     {"id":{"name":"spr_game_icon","path":"sprites/spr_game_icon/spr_game_icon.yy",},"order":8,},
     {"id":{"name":"spr_plus_button","path":"sprites/spr_plus_button/spr_plus_button.yy",},"order":13,},
     {"id":{"name":"spr_left_button","path":"sprites/spr_left_button/spr_left_button.yy",},"order":10,},
+    {"id":{"name":"spr_health_icons","path":"sprites/spr_health_icons/spr_health_icons.yy",},"order":17,},
     {"id":{"name":"spr_christmas_theme_9slice","path":"sprites/spr_christmas_theme_9slice/spr_christmas_theme_9slice.yy",},"order":1,},
     {"id":{"name":"obj_control","path":"objects/obj_control/obj_control.yy",},"order":1,},
     {"id":{"name":"spr_delete_button","path":"sprites/spr_delete_button/spr_delete_button.yy",},"order":6,},

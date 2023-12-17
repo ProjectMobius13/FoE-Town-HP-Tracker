@@ -16,18 +16,18 @@
 
 #region Move and Delete Checks
 	if (_move_up == 1) {
-		y -= 96;
+		y -= (ENTRY_HEIGHT + 4);
 		_move_up = 0;
 	}
 	
 	if (_move_down == 1) {
-		y += 96;
+		y += (ENTRY_HEIGHT + 4);
 		_move_down = 0;
 	}
 	
 	if (_delete_check == 1) {
 		_move_up = 1;	
-		var _fighter_at_position = instance_position(x, y+96, obj_fighter);
+		var _fighter_at_position = instance_position(x, y + ENTRY_HEIGHT + 4, obj_fighter);
 		if _fighter_at_position {
 			_fighter_at_position._delete_check = 1;
 		}
@@ -243,14 +243,14 @@
 					get_string("Copy your HP: ", result_string);
 				break;
 			case 6:
-				var _fighter_at_position = instance_position(x, y-96, obj_fighter);
+				var _fighter_at_position = instance_position(x, y - (ENTRY_HEIGHT + 4), obj_fighter);
 				if _fighter_at_position {
 					_move_up = 1;	
 					_fighter_at_position._move_down = 1;
 				}
 				break;
 			case 7:
-				var _fighter_at_position = instance_position(x, y+96, obj_fighter);
+				var _fighter_at_position = instance_position(x, y + (ENTRY_HEIGHT + 4), obj_fighter);
 				if _fighter_at_position {
 					_move_down = 1;	
 					_fighter_at_position._move_up = 1;

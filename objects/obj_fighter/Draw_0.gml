@@ -47,6 +47,33 @@
 	
 	_xx += _icon_width + 2;
 	
+	/*
+	var count = _hp;
+	var empty_count = _total_hp - _hp;
+	
+	while count > 0 {
+		if count >= 3 {
+			draw_sprite(spr_health_icons, 0, _xx, _yy);
+			_xx += _icon_width;
+			count -= 3;
+		} else if count == 2 {
+			draw_sprite(spr_health_icons, 1, _xx, _yy);
+			_xx += _icon_width;
+			count -= 2;
+		} else if count == 1 {
+			draw_sprite(spr_health_icons, 2, _xx, _yy);
+			_xx += _icon_width;
+			count -= 1;
+		}
+	}
+	
+	while empty_count >= 2 {
+		draw_sprite(spr_health_icons, 3, _xx, _yy);
+		_xx += _icon_width;
+		empty_count -= 3;
+	}
+	*/
+	
 	for (count = _hp; count > 0; count--) {
 		draw_sprite(spr_icons, 2 + 2*_color, _xx, _yy);
 		_xx += _icon_width + 2;
