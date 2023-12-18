@@ -37,7 +37,6 @@
 #endregion
 
 #region UI Button Checks
-	
 	if (_update_available) {
 		instance_deactivate_object(obj_fighter);
 		_yy = _top_camera_y + _camera_height/2 + 24;
@@ -56,6 +55,14 @@
 			_update_no_hover = 0;
 		}
 	} else {
+		// Toggle Theme
+		if point_in_rectangle(mouse_x, mouse_y, 100, _top_camera_y, 374, _top_camera_y + 50) {
+			overlay_hover = 1;	
+			selected_button = "Toggle Overlay";
+		} else {
+			overlay_hover = 0;	
+		}
+		
 		// Add Fighter Button
 		_xx = room_width/2;
 		_yy = y + 32 + (ENTRY_HEIGHT+4) * _fighter_count;
@@ -148,6 +155,12 @@
 			case "Ignore Update":
 				instance_activate_object(obj_fighter);
 				_update_available = false;
+				break;
+			case "Toggle Overlay":
+				if overlay == "Christmas"
+					overlay = "none";
+				else
+					overlay = "Christmas";
 				break;
 		}
 	}

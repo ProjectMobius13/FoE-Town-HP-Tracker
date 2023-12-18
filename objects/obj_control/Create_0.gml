@@ -33,6 +33,9 @@
 	
 	scroll_toggle = 0;
 	
+	overlay = "Christmas";
+	overlay_hover = 0;
+	
 	mouse_x_previous = mouse_x;
 	mouse_y_previous = mouse_y;
 #endregion
