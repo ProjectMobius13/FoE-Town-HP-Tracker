@@ -33,7 +33,7 @@
 	
 	scroll_toggle = 0;
 	
-	overlay = "Christmas";
+	overlay = "New Year";
 	overlay_hover = 0;
 	
 	mouse_x_previous = mouse_x;
@@ -50,6 +50,8 @@
 		_name = "Fighter " + string(_id);
 	}
 #endregion
+
+instance_create_depth(_xx, _yy, depth - 1, obj_theme_selector);
 
 #region Updater Setup
 	username = "PM13";//your username as a string, as set in the Update Sync app

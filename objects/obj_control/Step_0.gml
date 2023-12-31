@@ -4,7 +4,7 @@
 #region Variables
 	// Set Variables
 	
-	if instance_exists(obj_SPECIAL_menu)
+	if instance_exists(obj_popup)
 		exit;
 		
 	var _xx = x;
@@ -184,6 +184,16 @@
 	mouse_x_previous = mouse_x;
 	mouse_y_previous = mouse_y;
 #endregion
+
+switch (overlay) {
+	case "Hearth's Warming":
+		with obj_fighter
+			depth = depth + 1;
+		break;
+	default:
+		with obj_fighter
+			depth = depth - 1;
+}
 
 #region Browser Scaling
 	if os_browser == browser_not_a_browser

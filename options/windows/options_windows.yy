@@ -4,7 +4,7 @@
   "name": "Windows",
   "option_windows_display_name": "Unofficial Ashes Town Battle Assistant",
   "option_windows_executable_name": "AshesHPTracker.exe",
-  "option_windows_version": "1.0.6.0",
+  "option_windows_version": "1.0.7.0",
   "option_windows_company_info": "PM13",
   "option_windows_product_info": "",
   "option_windows_copyright_info": "",

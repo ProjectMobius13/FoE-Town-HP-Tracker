@@ -15,21 +15,39 @@
 	_scroll_bar_y = clamp(_scroll_bar_y, _scroll_area_start_y, _scroll_area_start_y + _scroll_area_height - _scroll_bar_height);
 #endregion
 
-if instance_exists(obj_SPECIAL_menu) {
-	if overlay == "Christmas" {
-		image_speed = 1/60;
-		draw_sprite_stretched(spr_christmas_theme_9slice, image_index, 0, camera_get_view_y(view_camera[0]), room_width, room_height);
-		draw_sprite_part(spr_christmas_theme_full, image_index, 100, 0, 274, 50, 100, _top_camera_y);
+if instance_exists(obj_popup) {
+	switch (overlay) {
+		case "None":
+			break;
+		case "Hearth's Warming":
+			image_speed = 1/60;
+			draw_sprite_stretched(spr_christmas_theme_9slice, image_index, 0, camera_get_view_y(view_camera[0]), room_width, room_height);
+			draw_sprite_part(spr_christmas_theme_full, image_index, 100, 0, 274, 50, 100, _top_camera_y);
+			break;
+		case "New Year":
+			image_speed = 2/60;
+			draw_sprite(spr_fireworks_theme, image_index, 0, camera_get_view_y(view_camera[0]));
+			break;
+		default:
 	}
 	exit;
 }
 		
 #region UI Buttons
 	if (_update_available) {
-		if overlay == "Christmas" {
-			image_speed = 1/60;
-			draw_sprite_stretched(spr_christmas_theme_9slice, image_index, 0, camera_get_view_y(view_camera[0]), room_width, room_height);
-			draw_sprite_part(spr_christmas_theme_full, image_index, 100, 0, 274, 50, 100, _top_camera_y);
+		switch (overlay) {
+			case "None":
+				break;
+			case "Hearth's Warming":
+				image_speed = 1/60;
+				draw_sprite_stretched(spr_christmas_theme_9slice, image_index, 0, camera_get_view_y(view_camera[0]), room_width, room_height);
+				draw_sprite_part(spr_christmas_theme_full, image_index, 100, 0, 274, 50, 100, _top_camera_y);
+				break;
+			case "New Year":
+				image_speed = 2/60;
+				draw_sprite(spr_fireworks_theme, image_index, 0, camera_get_view_y(view_camera[0]));
+				break;
+			default:
 		}
 		
 		_yy = _top_camera_y + _camera_height/2 - 46;
@@ -53,13 +71,22 @@ if instance_exists(obj_SPECIAL_menu) {
 		draw_sprite_stretched_ext(spr_name_field, GREEN, _xx - string_width("Yes")/2 - 2, _yy - string_height("Yes")/2 - 2, string_width("Yes") + 4, string_height("Yes") + 4, c_white, 0.5 + _update_no_hover);
 		draw_text(_xx, _yy, "No");
 	} else {
-		draw_sprite(spr_add_fighter_button, add_hover, room_width/2, _yy);
-		
-		if overlay == "Christmas" {
-			image_speed = 1/60;
-			draw_sprite_stretched(spr_christmas_theme_9slice, image_index, 0, camera_get_view_y(view_camera[0]), room_width, room_height);
-			draw_sprite_part(spr_christmas_theme_full, image_index, 100, 0, 274, 50, 100, _top_camera_y);
+		switch (overlay) {
+			case "None":
+				break;
+			case "Hearth's Warming":
+				image_speed = 1/60;
+				draw_sprite_stretched(spr_christmas_theme_9slice, image_index, 0, camera_get_view_y(view_camera[0]), room_width, room_height);
+				draw_sprite_part(spr_christmas_theme_full, image_index, 100, 0, 274, 50, 100, _top_camera_y);
+				break;
+			case "New Year":
+				image_speed = 2/60;
+				draw_sprite(spr_fireworks_theme, image_index, 0, camera_get_view_y(view_camera[0]));
+				break;
+			default:
 		}
+		
+		draw_sprite(spr_add_fighter_button, add_hover, room_width/2, _yy);
 		
 		draw_set_alpha(scroll_toggle);
 			draw_sprite_stretched(spr_box_nine_slice, GREEN, room_width - 30, _top_camera_y + 32, 28, room_height-68);
