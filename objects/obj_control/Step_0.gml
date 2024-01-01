@@ -1,6 +1,19 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+
+#region Browser Scaling
+	if os_browser == browser_not_a_browser
+		exit;
+		
+	if (browser_width != width || browser_height != height){
+	    _width = min(_base_width, browser_width);
+	    _height = min(_base_height, browser_height);
+		
+	    scale_canvas(_base_width, _base_height, _width, _height, true);
+	}
+#endregion
+
 #region Variables
 	// Set Variables
 	
@@ -194,15 +207,3 @@ switch (overlay) {
 		with obj_fighter
 			depth = depth - 1;
 }
-
-#region Browser Scaling
-	if os_browser == browser_not_a_browser
-		exit;
-		
-	if (browser_width != width || browser_height != height){
-	    _width = min(_base_width, browser_width);
-	    _height = min(_base_height, browser_height);
-		
-	    scale_canvas(_base_width, _base_height, _width, _height, true);
-	}
-#endregion
