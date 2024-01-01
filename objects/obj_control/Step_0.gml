@@ -3,14 +3,13 @@
 
 
 #region Browser Scaling
-	if os_browser == browser_not_a_browser
-		exit;
-		
-	if (browser_width != width || browser_height != height){
-	    _width = min(_base_width, browser_width);
-	    _height = min(_base_height, browser_height);
-		
-	    scale_canvas(_base_width, _base_height, _width, _height, true);
+	if os_browser != browser_not_a_browser {
+		if (browser_width != _width || browser_height != _height){
+		    _width = min(_base_width, browser_width);
+		    _height = min(_base_height, browser_height);
+			
+		    scale_canvas(_base_width, _base_height, _width, _height, true);
+		}
 	}
 #endregion
 
@@ -201,9 +200,9 @@
 switch (overlay) {
 	case "Hearth's Warming":
 		with obj_fighter
-			depth = depth + 1;
+			depth = obj_control.depth + 1;
 		break;
 	default:
 		with obj_fighter
-			depth = depth - 1;
+			depth = obj_control.depth - 1;
 }
