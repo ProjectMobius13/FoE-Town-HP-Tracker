@@ -10,7 +10,7 @@ With the Fo:E Town HP Tracker, you can:
 all with the click of a button!
 
 ## How to Install
-Download the zip file from the [Releases Page](https://github.com/ProjectMobius13/Ashes-Battle-Assistant/releases). Extract it and run the executable!
+Download the zip file from the [Releases Page](https://github.com/ProjectMobius13/FoE-Town-HP-Tracker/releases). Extract it and run the executable!
 
 *Note: This is a Windows-only release. Find the web browser version [here!](https://projectmobius13.github.io/ashes-battle-assistant.html)*
 
